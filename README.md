@@ -1,6 +1,6 @@
 # Quiz-challenge-week-4
 # Web APIs: Code Quiz
-challenge 4 of the bootcamp week 4
+challenge 4 of the UNB bootcamp week 4
 
 ### Contents
 1. Project Discription
@@ -12,11 +12,12 @@ challenge 4 of the bootcamp week 4
 
 ## Project Description 
 
- This Challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+ This project is to build a timed coding quiz with multiple-choice questions. The use of Javascript to provide quiz questions and collect user data to determine whether the answers to a question are correct, this then generates a score and store the results from the user data into local storage.
 
+This app will run in the browser. It feature dynamic HTML and CSS powered by JavaScript code. 
 ## deployed page link
 
-
+https://calligraphist.github.io/Quiz-challenge-week-4/
 
 ## Mock-Up
 
