@@ -2,18 +2,34 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <!--this makes the document responsive-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!--this is title-->
         <title>Coding Knowledge Quiz</title>
+        <!--linking css style -->
         <link rel="stylesheet" href="style.css" />
     </head>
 
     <body>
-        <div>
-            
-
+        <header>
+            <h5>score: <span>0</span></h5>
+            <h1>
+                Coding quiz challenge
+            </h1>
+            <h5>timer: <span id="timer-value">75</span></h5>
+        </header>
+        <div id="start-screen">
+             <!-- Buttons -->
+             <button id="startTime">Start Quiz</button>
         </div>
-
+     <div id="quiz-screen" style="display:none">
+        <h2>
+            test questions
+        </h2>
+        <div class="answer-box"></div>
+     </div>
+        <!--linking javascript file-->
         <script src="script.js"></script>
     </body>
 
