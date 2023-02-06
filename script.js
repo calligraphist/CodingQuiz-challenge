@@ -1,4 +1,4 @@
-/* define variables and assigning values using web APIs */
+//define variables and assigning values using web APIs 
 var startBtn =document.getElementById("startTime")
 console.log(startBtn)
 var timerEl=document.getElementById("timer-value")
@@ -9,12 +9,16 @@ function startGame(){
     document.getElementById("quiz-screen").style.display="block"
     timeInterval=setInterval(reducetime, 1000)
 }
+// Timer that counts down from 75
 function reducetime(){
-    timeleft--;
-    timerEl.textContent=timeleft
+    if (timeleft > 0) {
+        timerEl.textContent = timeleft;
+        timeleft--;
+        timerEl.textContent=timeleft
+    }
 }
 
 
 
-/* adding eventlistiner to the button so that when clicked it will start game*/ 
+//adding eventlistiner to the button so that when clicked it will start game.
 startBtn.addEventListener("click", startGame)
