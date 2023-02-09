@@ -94,19 +94,34 @@ var questions = [
         answer: "console log"
     }
 ]
- // Label
-//  var createLabel = document.createElement("label");
-//  createLabel.setAttribute("id", "createLabel");
-//  createLabel.textContent = "Enter your initials: ";
 
+// var btn= document.getElementById("btn");
+
+// btn.addEventListener('click', function(){
+//   var initials = document.getElementById("myinitials").value;
+//   alert("initials: "+ initials);
+// });
+// submitButton.addEventListener("click", function(event) {
+//     event.preventDefault();
+    
+//     // create user object from submission
+//     var initial = {
+//       initial: initialInput.value.trim(),
+//     };
+  
+//     // set new submission to local storage 
+//     localStorage.setItem("initial", JSON.stringify(initial));
+    
+//   });
+  
 // localStorage.setItem("score", JSON.stringify(timeInterval));
 // renderMessage();
 
 // function renderMessage() {
-//   var lastGrade = JSON.parse(localStorage.getItem("studentGrade"));
-//   if (lastGrade !== null) {
-//     document.querySelector(".message").textContent = lastGrade.student + 
-//     " received a/an " + lastGrade.grade
+//   var highScore = JSON.parse(localStorage.getItem("score"));
+//   if (initial !== null) {
+//     document.querySelector(".message").textContent = "your score is" + 
+//     score + initials
 //   }
 // }
 
