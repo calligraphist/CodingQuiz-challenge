@@ -20,6 +20,7 @@ function endGame(){
     document.getElementById("question-text").textContent="Well Done!",
     document.getElementById("answer-box").innerHTML="";
     clearInterval(timeInterval);
+    //showResponse = "Your score is"+ timeleft +"."
     
 }
 
@@ -98,16 +99,16 @@ var questions = [
         answer: "console log"
     }
 ]
-localStorage.setItem("score", JSON.stringify(timeInterval));
-renderMessage();
+// localStorage.setItem("score", JSON.stringify(timeInterval));
+// renderMessage();
 
-function renderMessage() {
-  var lastGrade = JSON.parse(localStorage.getItem("studentGrade"));
-  if (lastGrade !== null) {
-    document.querySelector(".message").textContent = lastGrade.student + 
-    " received a/an " + lastGrade.grade
-  }
-}
+// function renderMessage() {
+//   var lastGrade = JSON.parse(localStorage.getItem("studentGrade"));
+//   if (lastGrade !== null) {
+//     document.querySelector(".message").textContent = lastGrade.student + 
+//     " received a/an " + lastGrade.grade
+//   }
+// }
 
 //adding eventlistiner to the button so that when clicked it will start game.
 startBtn.addEventListener("click", startGame)

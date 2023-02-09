@@ -12,9 +12,10 @@ challenge 4 of the UNB bootcamp week 4
 
 ## Project Description 
 
- This project is to build a timed coding quiz with multiple-choice questions. The use of Javascript to provide quiz questions and collect user data to determine whether the answers to a question are correct, this then generates a score and store the results from the user data into local storage.
+ This is a project to build a timed coding quiz with multiple-choice questions. The use of Javascript to provide quiz questions and collect user data to determine whether the answers to a question are correct, and then generate a score and store the results from the user data into local storage.
 
 This app will run in the browser. It feature dynamic HTML and CSS powered by JavaScript code. 
+
 ## deployed page link
 
 https://calligraphist.github.io/Quiz-challenge-week-4/
@@ -52,4 +53,8 @@ THEN I can save my initials and my score
 
 
 ## contribution
-
+This project is done for UNB bootcamp.
+Special thganks to my instructor for all the help.
+I also get code inspiration from the following:
+https://github.com/leolopez10/code-quiz
+https://github.com/jamierachael/Code-Quiz
