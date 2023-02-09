@@ -1,7 +1,6 @@
 //define variables and assigning values using web APIs 
 var startBtn =document.getElementById("startTime")
 console.log(startBtn)
-var showResponse;
 var qi=0
 var timerEl=document.getElementById("timer-value")
 var scoreEl=document.getElementById("score-value")
@@ -17,50 +16,46 @@ function startGame(){
 }
 
 function endGame(){
-    document.getElementById("question-text").textContent="Well Done!",
+    document.getElementById("question-text").textContent="Well Done! Youe final score is "+ timeleft+".",
     document.getElementById("answer-box").innerHTML="";
     clearInterval(timeInterval);
-    //showResponse = "Your score is"+ timeleft +"."
-    
-}
+    }
 
-function askquestion(){
-    document.getElementById("question-text").textContent=questions[qi].title,
-    document.getElementById("answer-box").innerHTML=""
-    questions[qi].choices.forEach(function(choice){
-        console.log(choice);
-        var button= document.createElement("button");
-        button.style.backgroundColor="purple";
-        button.style.color="white";
-
-        button.textContent=choice;
-        button.setAttribute("value", choice)
-        button.onclick=function(){
-            if(qi===questions.length){
-                //call end game here.
-                score=timeleft;
+    function askquestion(){
+        document.getElementById("question-text").textContent=questions[qi].title,
+        document.getElementById("answer-box").innerHTML=""
+        questions[qi].choices.forEach(function(choice){
+            console.log(choice);
+            var button= document.createElement("button");
+            button.style.backgroundColor="purple";
+            button.style.color="white";
+           
+            button.textContent=choice;
+            button.setAttribute("value", choice)
+            button.onclick=function(){
+                // setting panelty
+               if(this.value !== questions[qi].answer){
+                timeleft -= 15
+                //displaymessage = wrong;
+               }
+               else{
+                score++
+                scoreEl.textContent=score;
+               // displaymessage = correct;
+               }
+               qi++;
+               if(qi===questions.length){
                 endGame();
                }
                else{
                 askquestion();
                }
-             // setting panelty, score and question
-        if(this.value !== questions[qi].answer){
-            timeleft -= 15
-           }
-           else{
-            score++
-            scoreEl.textContent=score;
-           }
-           qi++;
-
-           askquestion();
-        }
-        // Action to be performed on click store in named function
-        
-               document.getElementById("answer-box").append(button);
-    })
-}
+            }
+            // Action to be performed on click store in named function
+            
+            document.getElementById("answer-box").append(button);
+        })
+    }
 // Timer that counts down from 75
 function reducetime(){
     if (timeleft > 0) {
@@ -99,6 +94,11 @@ var questions = [
         answer: "console log"
     }
 ]
+ // Label
+//  var createLabel = document.createElement("label");
+//  createLabel.setAttribute("id", "createLabel");
+//  createLabel.textContent = "Enter your initials: ";
+
 // localStorage.setItem("score", JSON.stringify(timeInterval));
 // renderMessage();
 
