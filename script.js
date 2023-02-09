@@ -19,6 +19,7 @@ function endGame(){
     document.getElementById("question-text").textContent="Well Done! Youe final score is "+ timeleft+".",
     document.getElementById("answer-box").innerHTML="";
     clearInterval(timeInterval);
+    document.getElementById("final-score").style.display="block";
     }
 
     function askquestion(){
@@ -95,24 +96,24 @@ var questions = [
     }
 ]
 
-// var btn= document.getElementById("btn");
+var submitButton = document.getElementById("submit-button");
 
 // btn.addEventListener('click', function(){
-//   var initials = document.getElementById("myinitials").value;
+//   var initials = document.getElementById("initials").value;
 //   alert("initials: "+ initials);
 // });
-// submitButton.addEventListener("click", function(event) {
-//     event.preventDefault();
-    
-//     // create user object from submission
-//     var initial = {
-//       initial: initialInput.value.trim(),
-//     };
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+   var initial = document.getElementById("initials").value;
+    // create user object from submission
+    // var finalScore = {
+    //   finalScore: initialInput.value.trim(),
+    // };
   
-//     // set new submission to local storage 
-//     localStorage.setItem("initial", JSON.stringify(initial));
+    // set new submission to local storage 
+    localStorage.setItem("initial", JSON.stringify(initial));
     
-//   });
+  });
   
 // localStorage.setItem("score", JSON.stringify(timeInterval));
 // renderMessage();

@@ -12,3 +12,8 @@ header{
     color: white;
 }
 
+#startscreen {
+    border: none;
+    display:flex;
+    justify-content:center;
+}
