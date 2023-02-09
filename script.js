@@ -1,6 +1,7 @@
 //define variables and assigning values using web APIs 
 var startBtn =document.getElementById("startTime")
 console.log(startBtn)
+var showResponse;
 var qi=0
 var timerEl=document.getElementById("timer-value")
 var scoreEl=document.getElementById("score-value")
@@ -12,18 +13,38 @@ function startGame(){
     document.getElementById("start-screen").style.display="none"
     document.getElementById("quiz-screen").style.display="block"
     timeInterval=setInterval(reducetime, 1000)
-    askquestion()
+    askquestion();
 }
+
+function endGame(){
+    document.getElementById("question-text").textContent="Well Done!",
+    document.getElementById("answer-box").innerHTML="";
+    clearInterval(timeInterval);
+    
+}
+
 function askquestion(){
-    document.getElementById("question-text").textContent=questions[qi].title
+    document.getElementById("question-text").textContent=questions[qi].title,
     document.getElementById("answer-box").innerHTML=""
     questions[qi].choices.forEach(function(choice){
         console.log(choice);
         var button= document.createElement("button");
+        button.style.backgroundColor="purple";
+        button.style.color="white";
+
         button.textContent=choice;
         button.setAttribute("value", choice)
         button.onclick=function(){
-           if(this.value !== questions[qi].answer){
+            if(qi===questions.length){
+                //call end game here.
+                score=timeleft;
+                endGame();
+               }
+               else{
+                askquestion();
+               }
+             // setting panelty, score and question
+        if(this.value !== questions[qi].answer){
             timeleft -= 15
            }
            else{
@@ -31,15 +52,12 @@ function askquestion(){
             scoreEl.textContent=score;
            }
            qi++;
-           if(qi===questions.length){
-            //call end game here.
-           }
-           else{
-            askquestion()
-           }
+
            askquestion();
         }
-        document.getElementById("answer-box").append(button);
+        // Action to be performed on click store in named function
+        
+               document.getElementById("answer-box").append(button);
     })
 }
 // Timer that counts down from 75
@@ -47,7 +65,7 @@ function reducetime(){
     if (timeleft > 0) {
         timerEl.textContent = timeleft;
         timeleft--;
-        timerEl.textContent=timeleft
+        timerEl.textContent=timeleft;
     }
 }
 
@@ -56,7 +74,7 @@ function reducetime(){
 var questions = [
     {
         title: "Commonly Used data types DO NOT include:",
-        choices: ["stings", "alerts", "booleans", "numbers"],
+        choices: ["strings", "alerts", "booleans", "numbers"],
         answer: "alerts"
     },
     {
@@ -75,13 +93,21 @@ var questions = [
         answer: "quotes"
     },
     {
-        title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
+        title: "A very useful tool, used for development and debugging for printing content to the debugger is:",
         choices: ["Javascript", "terminal / bash", "for loops", "console log"],
         answer: "console log"
     }
 ]
+localStorage.setItem("score", JSON.stringify(timeInterval));
+renderMessage();
 
-
+function renderMessage() {
+  var lastGrade = JSON.parse(localStorage.getItem("studentGrade"));
+  if (lastGrade !== null) {
+    document.querySelector(".message").textContent = lastGrade.student + 
+    " received a/an " + lastGrade.grade
+  }
+}
 
 //adding eventlistiner to the button so that when clicked it will start game.
 startBtn.addEventListener("click", startGame)
