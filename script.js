@@ -106,25 +106,27 @@ submitButton.addEventListener("click", function(event) {
     event.preventDefault();
    var initial = document.getElementById("initials").value;
     // create user object from submission
-    // var finalScore = {
-    //   finalScore: initialInput.value.trim(),
-    // };
+    var finalScore = {
+        initials: initial,
+      finalScore: timeleft,
+    };
   
     // set new submission to local storage 
-    localStorage.setItem("initial", JSON.stringify(initial));
+    localStorage.setItem("finalScore", JSON.stringify(finalScore));
     
   });
   
 // localStorage.setItem("score", JSON.stringify(timeInterval));
-// renderMessage();
+renderMessage();
 
-// function renderMessage() {
-//   var highScore = JSON.parse(localStorage.getItem("score"));
-//   if (initial !== null) {
-//     document.querySelector(".message").textContent = "your score is" + 
-//     score + initials
-//   }
-// }
+function renderMessage() {
+  var highScore = JSON.parse(localStorage.getItem("finalScore"));
+  if (highScore !== null) {
+ //   document.querySelector(".message").textContent = "your score is" + 
+   // highScore.initials + " "+highScore.finalScore
+  console.log("your score is" + highScore.initials + " "+highScore.finalScore)  
+}
+}
 
 //adding eventlistiner to the button so that when clicked it will start game.
 startBtn.addEventListener("click", startGame)
