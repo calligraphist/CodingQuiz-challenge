@@ -15,10 +15,12 @@ function startGame(){
     askquestion();
 }
 
+
 function endGame(){
     document.getElementById("question-text").textContent="Well Done! Youe final score is "+ timeleft+".",
     document.getElementById("answer-box").innerHTML="";
     clearInterval(timeInterval);
+    timerEl.textContent = timeleft;
     document.getElementById("final-score").style.display="block";
     }
 
@@ -36,7 +38,12 @@ function endGame(){
             button.onclick=function(){
                 // setting panelty
                if(this.value !== questions[qi].answer){
-                timeleft -= 15
+                timeleft -= 15 
+                if(timeleft-15<=0){
+                    timeleft=0
+                    endGame();
+                    return;
+                }
                 //displaymessage = wrong;
                }
                else{
@@ -60,7 +67,7 @@ function endGame(){
 // Timer that counts down from 75
 function reducetime(){
     if (timeleft > 0) {
-        timerEl.textContent = timeleft;
+        
         timeleft--;
         timerEl.textContent=timeleft;
     }
@@ -113,7 +120,7 @@ submitButton.addEventListener("click", function(event) {
   
     // set new submission to local storage 
     localStorage.setItem("finalScore", JSON.stringify(finalScore));
-    
+    renderMessage();
   });
   
 // localStorage.setItem("score", JSON.stringify(timeInterval));
@@ -122,9 +129,9 @@ renderMessage();
 function renderMessage() {
   var highScore = JSON.parse(localStorage.getItem("finalScore"));
   if (highScore !== null) {
- //   document.querySelector(".message").textContent = "your score is" + 
-   // highScore.initials + " "+highScore.finalScore
-  console.log("your score is" + highScore.initials + " "+highScore.finalScore)  
+   document.querySelector("#highscore-text").textContent = "your score is " + 
+   highScore.initials + " "+highScore.finalScore
+  //console.log("your score is " + highScore.initials + " "+highScore.finalScore)  
 }
 }
 
