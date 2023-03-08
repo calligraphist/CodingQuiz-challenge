@@ -124,16 +124,16 @@ submitButton.addEventListener("click", function(event) {
   });
   
 // localStorage.setItem("score", JSON.stringify(timeInterval));
-renderMessage();
+//renderMessage();
 
 function renderMessage() {
   var highScore = JSON.parse(localStorage.getItem("finalScore"));
   if (highScore !== null) {
-   document.querySelector("#highscore-text").textContent = "your score is " + 
-   highScore.initials + " "+highScore.finalScore
+   document.querySelector("#highscore-text").textContent = highScore.initials + " " + "your score is " + 
+   " "+highScore.finalScore
   //console.log("your score is " + highScore.initials + " "+highScore.finalScore)  
 }
 }
-
+localStorage.clear();
 //adding eventlistiner to the button so that when clicked it will start game.
 startBtn.addEventListener("click", startGame)
